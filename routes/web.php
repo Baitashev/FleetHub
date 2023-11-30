@@ -1,19 +1,35 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DriverController;
+use App\Models\Driver;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-Route::get('/drivers', [DriverController::class, 'index'])->name('drivers');
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
 
-
-Route::get('/vehicles', function () {
-    return view('vehicles');
-})->name('vehicles');
 
 
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/drivers', function () {
+    $drivers = Driver::get();
+    return view('drivers', ['drivers' => $drivers]); // предположим, что ваш шаблон называется driver.blade.php
+})->name('drivers');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
