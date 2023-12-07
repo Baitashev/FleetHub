@@ -1,7 +1,7 @@
 /* Шапка */
 
 .header {
-    background-color: #00C5FF;
+    background-color: #FFA500;
     padding: 20px;
     text-align: center;
 }
@@ -23,7 +23,7 @@
 
 .header .main-nav .nav-item.active {
     background-color: #FFFFFF;
-    color: #00C5FF;
+    color: #FFA500;
 }
 
 /* Основная часть */

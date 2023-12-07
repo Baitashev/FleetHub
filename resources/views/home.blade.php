@@ -4,23 +4,20 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>FleetHub: База знаний</title>
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
+
 
 
     </head>
-            <body>
-
+    <body>
         <style>
             .nav-item{
                 font-size: 24px;
             }
-            body {
-                    background-image: url('C:\OSPanel\domains\fleethub\resources\views\logo.png');
-                    background-size: cover;
-                    background-position: center;
 
-                }
+
             .services, .tools {
                 width: 80%; /* Фиксированная ширина блока */
                 margin-left: auto; /* Центрирование блока по горизонтали */
@@ -29,10 +26,25 @@
                 text-align: justify; /* Выравнивание текста по ширине */
             }
 
+
             .logo img {
             max-width: 200px; /* Максимальная ширина логотипа */
 
         }
+        body {
+            font-family: 'Nunito', sans-serif; /* Применение шрифта к тексту */
+        }
+        .btn-primary {
+            width: fit-content;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         </style>
 
         <header class="header">
@@ -43,7 +55,7 @@
                 <nav class="main-nav">
                     <a href="/" class="nav-item">Главная</a>
                     <a href="{{route('drivers') }}" class="nav-item active">Водители</a>
-                    <a href="auto" class="nav-item">Автомобили</a>
+                    <a href="{{route('autos')}}" class="nav-item active">Автомобили</a>
 
 
                 </nav>
@@ -77,11 +89,10 @@
 
     Подготовка и Лицензирование
     Первый шаг - получение правильной лицензии и сертификатов. Проверьте требования в вашем регионе. Обычно для работы водителем такси требуется водительское удостоверение соответствующей категории, чистая криминальная история, а также возможно прохождение специального курса обучения.<p>
-         <a href="/" class="btn btn-primary">Стать водителем</a>
+                <div class="flex-container">
+                    <a href="/" class="btn btn-primary">Стать водителем</a>
                 </div>
-
-                </div>
-
+            </div>
                 <div class="tools">
                     <h2>Инструменты</h2>
                     <p>Какие тарифы подходят моему автомобилю</p>
@@ -89,7 +100,11 @@
 
     Размер и Класс Вашего Автомобиля
     Учтите тип, размер и технические характеристики вашего автомобиля. Некоторые тарифы могут быть более выгодны для компактных автомобилей, тогда как другие могут предоставлять дополнительные бонусы для автомобилей большего класса.<p>
+                <div class="flex-container">
+                    <a href="/" class="btn btn-primary">Тарифы</a>
                 </div>
+            </div>
+
 
             </div>
         </main>
@@ -97,7 +112,7 @@
         <footer class="footer">
             <div class="container">
                 <div class="copyright">
-                    &copy; 2023 Fleethub
+                    &copy; 2023 Fleethub Все правы защищены автором.
                 </div>
                 <div class="links">
 

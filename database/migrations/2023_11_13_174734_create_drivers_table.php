@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,11 +12,15 @@ return new class extends Migration
     {
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('license_number')->unique(); // Номер водительского удостоверения (уникальный)
-            $table->string('dateOfBirthday');
-            $table->string('phone_number'); // Номер телефона водителя
-            $table->string('car_number'); // Номер автомобиля водителя
+            $table->string('full_name');
+            $table->date('birth_date');
+            $table->string('phone_number');
+            $table->string('license_number')->unique();
+            $table->string('issuing_country');
+            $table->date('issue_date');
+            $table->date('expiration_date');
+            $table->string('car_brand');
+            $table->string('license_plate');
             $table->timestamps();
         });
     }
