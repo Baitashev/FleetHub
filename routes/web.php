@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Driver;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\AutoController; // Исправленный namespace
+use App\Http\Controllers\AdressController;
+
+Route::get('/adress-page', [AdressController::class, 'showContacts'])->name('adress');
+
 
 Route::get('/', function () {
     return view('home');
@@ -23,6 +27,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/autos', [AutoController::class, 'index'])->name('autos');
 Route::get('/auto/register', [AutoController::class, 'create'])->name('auto.register');
 Route::post('/auto/register', [AutoController::class, 'store'])->name('auto.register.submit');
+// routes/web.php
+Route::get('/drivers/{id}', 'DriverController@showDriverCard')->name('driver.show');
+
 
 Route::get('/register/driver', [DriverController::class, 'showRegistrationPage'])->name('driver.register');
 Route::post('/submit_driver', [DriverController::class, 'register']);

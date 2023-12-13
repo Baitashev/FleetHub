@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'Nunito', sans-serif;
-            margin: 20px;
+            margin: 10px;
         }
 
         h1 {
@@ -61,7 +61,7 @@
 <body>
     <h1>
         Список автомобилей
-        <a href="{{ route('auto.register') }}" class="btn btn-primary">Зарегистрировать автомобиль</a>
+        <a href="{{ route('auto.register') }}" class="btn btn-primary btn-sm">Зарегистрировать автомобиль</a>
     </h1>
 
     @if ($autos->isEmpty())

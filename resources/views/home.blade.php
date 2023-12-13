@@ -44,6 +44,13 @@
             justify-content: space-between;
             align-items: center;
         }
+         /* Добавленные стили для footer */
+        .footer {
+            background-color: black; /* Цвет фона футера - черный */
+            color: white; /* Цвет текста внутри футера - белый */
+            /* Другие стили футера */
+        }
+
 
         </style>
 
@@ -103,13 +110,24 @@
                 <div class="flex-container">
                     <a href="/" class="btn btn-primary">Тарифы</a>
                 </div>
+
+            <!-- Раздел "Контакты" -->
+            <div class="contacts">
+                <h2>Контакты</h2>
+                <p>Для связи с нами:</p>
+                <p>Email:baisal2010@bk.ru</p>
+                <p>Телефон: +996 708 42 60 23</p>
+                <div class="flex-container">
+                    <a href="/adress-page" class="btn btn-primary">НАШ АДРЕС</a>
+                </div>
             </div>
 
 
-            </div>
+
         </main>
 
         <footer class="footer">
+
             <div class="container">
                 <div class="copyright">
                     &copy; 2023 Fleethub Все правы защищены автором.

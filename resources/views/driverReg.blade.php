@@ -107,6 +107,10 @@
             <label for="license_plate">Номер автомобиля:</label>
             <input type="text" id="license_plate" name="license_plate" required>
         </div>
+         <div class="form-group">
+            <label for="driver_photo">Фото водителя:</label>
+            <input type="file" id="foto" name="foto" accept="image/*">
+        </div>
 
         <input type="submit" value="Зарегистрировать водителя">
     </form>
