@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateTripsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('trips', function (Blueprint $table) {
             $table->id();
-            $table->string('vehicle_id');
+            $table->string('auto_id');
             $table->string('driver_id')->unique();
             $table->string('start_time');
             $table->string('end_time'); // Номер телефона водителя
@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('distance');
             $table->string('client_id');
             $table->string('trip_cost');
+            $table->string('commision');
+            $table->string('pricing_id');
         });
     }
 
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('имя_таблицы');
+        Schema::dropIfExists('trips');
     }
 };

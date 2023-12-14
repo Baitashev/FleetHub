@@ -106,9 +106,9 @@
 @endauth
         </nav>
         <!-- Кнопка "Назначить заказ" -->
-    <div class="flex-container">
+    <!-- <div class="flex-container">
         <a href="{{ route('appoint-order') }}" class="btn btn-primary">Назначить заказ</a>
-    </div>
+    </div> -->
     <div class="create-order">
             <h2>Создать заказ</h2>
             <p>Нажмите на кнопку ниже, чтобы создать новый заказ:</p>
