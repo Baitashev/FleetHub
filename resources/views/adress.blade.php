@@ -97,7 +97,7 @@
                 <img src="{{ asset('img/image.jpeg') }}" alt="Almurut Taxopark">
             </a>
             <nav>
-                <a href="/" class="nav-item">Главная</a>
+                <a href="/home" class="nav-item">Главная</a>
                 <a href="{{ route('drivers') }}" class="nav-item">Водители</a>
                 <a href="{{ route('autos') }}" class="nav-item">Автомобили</a>
             </nav>

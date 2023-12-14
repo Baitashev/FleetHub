@@ -50,6 +50,38 @@
             color: white; /* Цвет текста внутри футера - белый */
             /* Другие стили футера */
         }
+         /* Изменения для улучшения расположения */
+        .main {
+            padding-bottom: 50px; /* Добавлено заполнение снизу для лучшей видимости подвала */
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px; /* Добавлен отступ для лучшего интервала */
+        }
+
+        .services, .tools {
+            margin-top: 40px; /* Добавлен интервал между секциями */
+        }
+
+        .services p, .tools p {
+            margin-bottom: 20px; /* Добавлен интервал после абзацев */
+        }
+
+        .services .flex-container,
+        .tools .flex-container {
+            margin-top: 20px; /* Изменен отступ для кнопок */
+        }
+
+        /* Стили подвала */
+        .footer {
+            padding: 20px 0; /* Добавлено заполнение для лучшего интервала */
+            color: white;
+            text-align: center;
+        }
 
 
         </style>
@@ -59,13 +91,30 @@
                 <a href="/" class="logo">
                     <img src ="{{ asset('img/image.jpeg') }}" alt="Almurut Taxopark">
                 </a>
-                <nav class="main-nav">
-                    <a href="/" class="nav-item">Главная</a>
-                    <a href="{{route('drivers') }}" class="nav-item active">Водители</a>
-                    <a href="{{route('autos')}}" class="nav-item active">Автомобили</a>
-
-
-                </nav>
+                 <nav class="main-nav">
+            <a href="/" class="nav-item">Главная</a>
+            <a href="{{ route('drivers') }}" class="nav-item active">Водители</a>
+            <a href="{{ route('autos') }}" class="nav-item active">Автомобили</a>
+            @auth
+<form method="POST" action="{{ route('logout') }}">
+    @csrf <!-- CSRF-защита для безопасности -->
+    <button class="btn btn-primary" type="submit">Выйти</button>
+</form>
+<p class="nav-item">Привет, {{ Auth::user()->name }}!</p>
+@else
+<a href="{{ route('logins') }}">Войти</a>
+@endauth
+        </nav>
+        <!-- Кнопка "Назначить заказ" -->
+    <div class="flex-container">
+        <a href="{{ route('appoint-order') }}" class="btn btn-primary">Назначить заказ</a>
+    </div>
+    <div class="create-order">
+            <h2>Создать заказ</h2>
+            <p>Нажмите на кнопку ниже, чтобы создать новый заказ:</p>
+            <div class="flex-container">
+                <a href="{{ route('create-order') }}" class="btn btn-primary">Создать заказ</a>
+            </div>
             </div>
         </header>
 
@@ -88,8 +137,13 @@
                         </li>
                     </ul>
                 </div>
+
+        </div>
                  <!-- Блоки с текстом "Сервисы" и "Инструменты" -->
                 <div class="services">
+                    <div class="authorization-button">
+
+                </div>
                     <h2>Сервисы</h2>
                     <p>Водитель такси</p>
                     <p>Хотите стать водителем такси? Это увлекательное путешествие в мир профессионального водителя и предпринимателя. В этом занятии есть множество возможностей для тех, кто ищет гибкий график, высокий доход и удовлетворение от предоставления качественных услуг.
