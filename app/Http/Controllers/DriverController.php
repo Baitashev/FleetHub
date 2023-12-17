@@ -39,7 +39,7 @@ class DriverController extends Controller
             ];
         return view('driverReg',['countries' => $countries]); // Предполагается, что шаблон для страницы находится в resources/views/driversReg.blade.php
     }
-    public function register(Request $request)
+    public function submitDriver(Request $request)
     {
         $driver = new Driver();
         $driver->full_name = $request->input('full_name');

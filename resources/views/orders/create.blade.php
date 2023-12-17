@@ -79,10 +79,10 @@
         <form action="{{ route('store-order') }}" method="POST">
             @csrf
 
-            <label for="start_point">Начальная точка</label>
+            <label for="start_location">Начальная точка</label>
             <input type="text" id="start_location" name="start_location">
 
-            <label for="end_point">Конечная точка</label>
+            <label for="end_location">Конечная точка</label>
             <input type="text" id="end_location" name="end_location">
 
             <label for="auto">Автомобиль</label>
@@ -153,19 +153,17 @@
                 }
             );
         }
-    </script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXwhmjHqyGy5qz5nXq10KURlhhaBODaN4&callback=initMap&libraries=places"
-        async
-        defer
 
-    >
         function getLocation() {
+
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition, errorHandler);
+                console.log("Геолокация поддерживается");
             } else {
                 console.log("Геолокация не поддерживается вашим браузером");
             }
+
+
         }
 
         function showPosition(position) {
@@ -195,6 +193,23 @@
 
         // Вызов функции для получения местоположения пользователя
         getLocation();
+        map.addListener("click", function(event) {
+            const clickedLocation = event.latLng;
+            const latitude = clickedLocation.lat();
+            const longitude = clickedLocation.lng();
+
+            // Пример простой передачи координат в поля ввода
+            startLocationInput.value = latitude + ", " + longitude;
+            // Здесь можно использовать Geocoding для получения адреса по координатам
+            // и передать его в соответствующее поле ввода
+        });
+    </script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXwhmjHqyGy5qz5nXq10KURlhhaBODaN4&callback=initMap&libraries=places"
+        async
+        defer
+    >
+
     </script>
 </body>
 
